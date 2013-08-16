@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="polymer-all/polymer/polymer.js"></script>
+    <link rel="import" href="radio-buttons.html"/>
+  </head>
+  <body>
+    <polymer-element name="test">
+      <template>
+        <radio-buttons values="{{ values }}" value="{{ value }}"></radio-buttons>
+        <radio-buttons values="{{ values }}" value="{{ value }}"></radio-buttons>
+      </template>
+      <script>
+        Polymer("test", {
+          values: ["A", "B", "C"],
+          value: "B"
+        });
+      </script>
+    </polymer-element>
+    <test></test>
+  </body>
+</html>

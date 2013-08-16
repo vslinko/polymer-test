@@ -1,0 +1,50 @@
+<polymer-element name="radio-buttons" attributes="values value">
+  <template>
+    <div class="radio_buttons">
+      <template repeat="{{ v in values }}">
+        <div class="radio_buttons-value {{ v == value ? 'radio_buttons-value--state-selected' : '' }}"
+             on-click="setValue">{{ v }}</div>
+      </template>
+    </div>
+  </template>
+  <style>
+    .radio_buttons {
+      overflow: hidden;
+      float: left;
+      margin: 10px;
+    }
+
+    .radio_buttons-value {
+      background: lightgray;
+      padding: 10px;
+      border: 1px solid black;
+      border-right-width: 0;
+      float: left;
+      cursor: pointer;
+    }
+
+    .radio_buttons-value--state-selected {
+      background-color: black;
+      color: white;
+    }
+
+    .radio_buttons-value:first-of-type {
+      border-radius: 10px 0 0 10px;
+    }
+
+    .radio_buttons-value:last-of-type {
+      border-right-width: 1px;
+      border-radius: 0 10px 10px 0;
+    }
+  </style>
+  <script>
+    Polymer("radio-buttons", {
+      values: [],
+      value: null,
+      setValue: function (event) {
+        var newValue = event.target.innerHTML;
+        this.value = this.value == newValue ? null : newValue;
+      }
+    });
+  </script>
+</polymer-element>
